@@ -4,6 +4,7 @@ import EnquireForm from "./Enquire.jsx";
 import LandingPage from "./Landing.jsx";
 import OfferPage from "./Offer.jsx";
 import Footer from "./Footer.jsx";
+import CustomGifts from "./CustomRequests.jsx";
 
 const Home= ()=> {
   return (
@@ -15,6 +16,8 @@ const Home= ()=> {
     <OfferPage/>
     <div className="h-[8vh]" />
     <EnquireForm/>
+    <div className="h-[8vh]" />
+    <CustomGifts/>
     <div className="h-[20vh]" />
     <Footer/>
     </>
