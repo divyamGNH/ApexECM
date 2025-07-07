@@ -87,7 +87,7 @@ const NavBar = () => {
             )}
           </div>
 
-          <Link to="/book-call" className="hover:text-blue-600 transition-colors">
+          <Link to="/bookcall" className="hover:text-blue-600 transition-colors">
             Book a Call
           </Link>
         </div>
