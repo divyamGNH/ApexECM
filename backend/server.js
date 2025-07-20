@@ -7,6 +7,8 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const senderMail = process.env.EMAIL_USER;
+const receiverMail = process.env.CLIENT_EMAIL;
 
 // Middleware
 app.use(express.json());
@@ -40,7 +42,7 @@ app.post("/api/send-enquiry", async (req, res) => {
   });
 
   // Email content
-  const mailOptions = {
+  const mailContent = {
     from: `"${name}" <${process.env.EMAIL_USER}>`,
     to: process.env.CLIENT_EMAIL,
     replyTo: email,
@@ -60,7 +62,8 @@ app.post("/api/send-enquiry", async (req, res) => {
   };
 
   try {
-    await transporter.sendMail(mailOptions);
+    await transporter.sendMail(mailContent);
+    console.log("Succesfully sent the enquiry email");
     res.status(200).json({ success: true, message: "Email sent successfully!" });
   } catch (error) {
     console.error("Email send error:", error.message, error.stack);

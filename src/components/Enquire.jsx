@@ -1,10 +1,12 @@
-import React from "react";
+import {useState, useEffect} from "react";
 import BulkOrderForm from "./Form.jsx";
 import shipping from "../assets/shipping.gif";
 import Gift from "../assets/Gift.gif";
 import CorporateGift from "../assets/CorporateGift.gif";
+import axios from "axios";
 
-const Order = () => {
+
+const Enquire = () => {
   return (
     <div className="flex flex-col md:flex-row justify-center w-full p-6 gap-6">
       {/* Left section with text and GIF */}
@@ -32,4 +34,4 @@ const Order = () => {
   );
 };
 
-export default Order;
+export default Enquire;

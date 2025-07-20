@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import axios from "axios";
 
 const BulkOrderForm = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    company: '',
-    email: '',
-    phone: '',
-    productTags: '',
-    quantity: '',
-    message: '',
+    name: "",
+    company: "",
+    email: "",
+    phone: "",
+    productTags: "",
+    quantity: "",
+    message: "",
   });
 
   const handleChange = (e) => {
@@ -16,22 +17,20 @@ const BulkOrderForm = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Replace with actual submission logic
-    console.log('Form submitted:', formData);
-    alert('Order submitted successfully!');
+    try {
+      const response = await axios.post(
+        "http://localhost:3000/api/send-enquiry",
+        formData
+      );
 
-    setFormData({
-      name: '',
-      company: '',
-      email: '',
-      phone: '',
-      productTags: '',
-      quantity: '',
-      message: '',
-    });
+      console.log("Form submitted:", response.data);
+      alert("Order submitted successfully!");
+    } catch(err){
+      console.log("Error sending form data",err);
+    }
   };
 
   return (
